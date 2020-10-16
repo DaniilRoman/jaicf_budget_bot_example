@@ -40,6 +40,8 @@ class ContextDelegate(context: BotContext) {
     }
 }
 
+data class BudgetItemModel(val name: String, val price: Double, val imgUrl: String)
+
 enum class Currency {
     CHF,
     EUR,
@@ -59,7 +61,8 @@ fun Reactions.sayRandomBudget(context: ContextDelegate) {
     val pickedPrice = currency["rates"]!!.jsonObject.get(pickedCurrency.name)!!.double
 
     val variant = random(budgetItems[pickedCurrency]!!)
-    val itemCount = BigDecimal(context.convertedSum(pickedPrice) / variant.second).setScale(2, RoundingMode.HALF_EVEN)
-    say("Your budget: $itemCount ${variant.first}'s")
+    val itemCount = BigDecimal(context.convertedSum(pickedPrice) / variant.price).setScale(2, RoundingMode.HALF_EVEN)
+    image(variant.imgUrl)
+    say("Your budget: $itemCount ${variant.name}'s")
 }
 data class CurrencyResponse(val base: String, val rates: Map<String, Double>, val date: Date)

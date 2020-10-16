@@ -1,18 +1,18 @@
 {
   "EUR": [
     {
-      "first": "burger", "second": 2.0
+      "name": "burger", "price": 2.0, "imgUrl": "https://media.giphy.com/media/JteZf56ZXsJl6/giphy.gif"
     },
     {
-      "first": "cola", "second":  1.5
+      "name": "cola", "price":  1.5, "imgUrl": "https://media.giphy.com/media/LlKN1Ytc1tgKS5Yo81/giphy.gif"
     }
   ],
   "CHF": [
     {
-      "first": "cheese", "second": 11.0
+      "name": "cheese", "price": 11.0, "imgUrl": "https://media.giphy.com/media/7ojeb3qz5r9jG/giphy.gif"
     },
     {
-      "first": "wine", "second": 25.0
+      "name": "wine", "price": 25.0, "imgUrl": "https://media.giphy.com/media/zx6Tsme145Eoo/giphy.gif"
     }
   ]
 }

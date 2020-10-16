@@ -8,13 +8,14 @@ import com.justai.jaicf.activator.caila.CailaIntentActivator
 import com.justai.jaicf.activator.caila.CailaNLUSettings
 import com.justai.jaicf.activator.regex.RegexActivator
 import com.justai.jaicf.channel.jaicp.logging.JaicpConversationLogger
+import com.justai.jaicf.template.scenario.BudgetItemModel
 import com.justai.jaicf.template.scenario.Currency
 import com.justai.jaicf.template.scenario.MainScenario
 import java.util.*
 
-val budgetItems: Map<Currency, List<Pair<String, Double>>> = ObjectMapper().registerKotlinModule().readValue(
+val budgetItems: Map<Currency, List<BudgetItemModel>> = ObjectMapper().registerKotlinModule().readValue(
     BotEngine::class.java.getResource("/items.json"),
-    object : TypeReference<Map<Currency, List<Pair<String, Double>>>>() {}
+    object : TypeReference<Map<Currency, List<BudgetItemModel>>>() {}
 )
 
 val accessToken: String = System.getenv("JAICP_API_TOKEN") ?: Properties().run {

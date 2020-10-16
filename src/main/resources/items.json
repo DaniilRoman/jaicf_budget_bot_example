@@ -1,0 +1,18 @@
+{
+  "EUR": [
+    {
+      "first": "burger", "second": 2.0
+    },
+    {
+      "first": "cola", "second":  1.5
+    }
+  ],
+  "CHF": [
+    {
+      "first": "cheese", "second": 11.0
+    },
+    {
+      "first": "wine", "second": 25.0
+    }
+  ]
+}

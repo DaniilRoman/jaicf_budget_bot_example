@@ -1,6 +1,5 @@
 package com.justai.jaicf.template.scenario
 
-import com.justai.jaicf.activator.caila.caila
 import com.justai.jaicf.model.scenario.Scenario
 
 object MainScenario : Scenario() {
@@ -9,47 +8,69 @@ object MainScenario : Scenario() {
         state("start") {
             activators {
                 regex("/start")
-                intent("Hello")
             }
+
             action {
                 reactions.run {
-                    image("https://media.giphy.com/media/ICOgUNjpvO0PC/source.gif")
-                    sayRandom(
-                        "Hello! How can I help?",
-                        "Hi there! How can I help you?"
-                    )
                     buttons(
-                        "Help me!",
-                        "How are you?",
-                        "What is your name?"
+                        "+",
+                        "-"
                     )
                 }
             }
-        }
 
-        state("bye") {
-            activators {
-                intent("Bye")
-            }
+            state("+") {
+                activators { regex("\\+") }
 
-            action {
-                reactions.sayRandom(
-                    "See you soon!",
-                    "Bye-bye!"
-                )
-                reactions.image("https://media.giphy.com/media/EE185t7OeMbTy/source.gif")
-            }
-        }
-
-        state("smalltalk", noContext = true) {
-            activators {
-                anyIntent()
-            }
-
-            action {
-                activator.caila?.topIntent?.answer?.let {
-                    reactions.say(it)
+                action {
+                    val contextDelegate = ContextDelegate(context)
+                    contextDelegate.sign = 1
+                    reactions.say("Tape number")
+                    reactions.go("number")
                 }
+            }
+
+            state("-") {
+                activators { regex("\\-") }
+
+                action {
+                    val contextDelegate = ContextDelegate(context)
+                    contextDelegate.sign = -1
+                    reactions.say("Tape number")
+                    reactions.go("number")
+                }
+            }
+        }
+
+        state("number") {
+            activators { regex("\\d+") }
+            action {
+                val contextDelegate = ContextDelegate(context)
+                contextDelegate.incSum(request.input.toInt())
+
+                reactions.sayRandomBudget(contextDelegate)
+                reactions.buttons("What else?", "Enough")
+            }
+
+            state("What else?", noContext = true) {
+                activators { regex("What else\\?") }
+                action {
+                    val contextDelegate = ContextDelegate(context)
+
+                    reactions.sayRandomBudget(contextDelegate)
+                    reactions.buttons("What else?", "Enough")
+                }
+            }
+
+            state("Enough") {
+                activators { regex("Enough") }
+                action { reactions.go("/start") }
+            }
+
+            fallback {
+                reactions.say(
+                    "It not a number."
+                )
             }
         }
 

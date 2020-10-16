@@ -1,5 +1,6 @@
 package com.justai.jaicf.template.scenario
 
+import com.justai.jaicf.channel.telegram.telegram
 import com.justai.jaicf.model.scenario.Scenario
 
 object MainScenario : Scenario() {
@@ -12,10 +13,8 @@ object MainScenario : Scenario() {
 
             action {
                 reactions.run {
-                    buttons(
-                        "+",
-                        "-"
-                    )
+                    buttons("+", "-")
+                    telegram?.say("Pick one", listOf("+", "-"))
                 }
             }
 
@@ -48,8 +47,11 @@ object MainScenario : Scenario() {
                 val contextDelegate = ContextDelegate(context)
                 contextDelegate.incSum(request.input.toInt())
 
-                reactions.sayRandomBudget(contextDelegate)
-                reactions.buttons("What else?", "Enough")
+                reactions.run {
+                    sayRandomBudget(contextDelegate)
+                    telegram?.say("Pick one", listOf("What else?", "Enough"))
+                    buttons("What else?", "Enough")
+                }
             }
 
             state("What else?", noContext = true) {
@@ -57,8 +59,11 @@ object MainScenario : Scenario() {
                 action {
                     val contextDelegate = ContextDelegate(context)
 
-                    reactions.sayRandomBudget(contextDelegate)
-                    reactions.buttons("What else?", "Enough")
+                    reactions.run {
+                        sayRandomBudget(contextDelegate)
+                        telegram?.say("Pick one", listOf("What else?", "Enough"))
+                        buttons("What else?", "Enough")
+                    }
                 }
             }
 

@@ -26,12 +26,13 @@ val httpClient = HttpClient(CIO) {
 
 class ContextDelegate(context: BotContext) {
 
-    var sign: Int by context.client
+    var sign: Int? by context.client
     var sum: Int? by context.client
 
     fun incSum(input: Int) {
         sum = sum ?: 0
-        sum = sum!! + (sign * input)
+        sign = sign ?: 1
+        sum = sum!! + (sign!! * input)
     }
 
     fun convertedSum(pickedPrice: Double): Double {

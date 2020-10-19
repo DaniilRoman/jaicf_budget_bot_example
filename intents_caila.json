@@ -1,0 +1,118 @@
+[
+  {
+    "id": 7162,
+    "path": "/buy",
+    "answer": "Please fill dish and country.",
+    "enabled": true,
+    "shared": false,
+    "phrases": [
+      {
+        "text": "I want to buy a burger in swiss"
+      },
+      {
+        "text": "buy a wine"
+      },
+      {
+        "text": "in uk"
+      }
+    ],
+    "patterns": [],
+    "slots": [
+      {
+        "name": "dish",
+        "entity": "dish",
+        "required": true,
+        "prompts": [],
+        "array": false
+      },
+      {
+        "name": "country",
+        "entity": "country",
+        "required": true,
+        "prompts": []
+      }
+    ]
+  },
+  {
+    "id": 7161,
+    "path": "/Bye",
+    "enabled": true,
+    "shared": false,
+    "phrases": [
+      {
+        "text": "goodbye"
+      },
+      {
+        "text": "bye"
+      },
+      {
+        "text": "see you"
+      }
+    ],
+    "patterns": []
+  },
+  {
+    "id": 7171,
+    "path": "/Country",
+    "enabled": true,
+    "shared": false,
+    "phrases": [
+      {
+        "text": "in uk"
+      },
+      {
+        "text": "swiss"
+      }
+    ],
+    "patterns": [],
+    "slots": [
+      {
+        "name": "country",
+        "entity": "country",
+        "required": true,
+        "prompts": []
+      }
+    ]
+  },
+  {
+    "id": 7172,
+    "path": "/Dish",
+    "enabled": true,
+    "shared": false,
+    "phrases": [
+      {
+        "text": "a cheese"
+      },
+      {
+        "text": "burger"
+      }
+    ],
+    "patterns": [],
+    "slots": [
+      {
+        "name": "dish",
+        "entity": "dish",
+        "required": true,
+        "prompts": []
+      }
+    ]
+  },
+  {
+    "id": 7160,
+    "path": "/Hello",
+    "enabled": true,
+    "shared": false,
+    "phrases": [
+      {
+        "text": "hi"
+      },
+      {
+        "text": "hello"
+      },
+      {
+        "text": "welcome"
+      }
+    ],
+    "patterns": []
+  }
+]

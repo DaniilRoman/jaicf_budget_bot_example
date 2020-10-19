@@ -1,0 +1,97 @@
+[
+  {
+    "entity": {
+      "name": "country",
+      "type": "annotation",
+      "id": 7009,
+      "enabled": true,
+      "shared": false,
+      "priority": 1,
+      "noSpelling": true,
+      "noMorph": false,
+      "phoneticSearch": false,
+      "fuzzySearch": false,
+      "client": false
+    },
+    "records": [
+      {
+        "type": "synonyms",
+        "rule": [
+          "eng",
+          "England",
+          "uk",
+          "UK"
+        ],
+        "value": "EUR",
+        "id": 63999
+      },
+      {
+        "type": "synonyms",
+        "rule": [
+          "swiss",
+          "switzerland",
+          "Swiss",
+          "Switzerland"
+        ],
+        "value": "CHF",
+        "id": 64000
+      }
+    ]
+  },
+  {
+    "entity": {
+      "name": "dish",
+      "type": "annotation",
+      "id": 7010,
+      "enabled": true,
+      "shared": false,
+      "priority": 1,
+      "noSpelling": true,
+      "noMorph": false,
+      "phoneticSearch": false,
+      "fuzzySearch": false,
+      "client": false
+    },
+    "records": [
+      {
+        "type": "synonyms",
+        "rule": [
+          "burger",
+          "burg"
+        ],
+        "value": "burger",
+        "id": 64001
+      },
+      {
+        "type": "synonyms",
+        "rule": [
+          "cheess",
+          "chee",
+          "cheese"
+        ],
+        "value": "cheese",
+        "id": 64002
+      },
+      {
+        "type": "synonyms",
+        "rule": [
+          "cola",
+          "coca cola",
+          "coca",
+          "soda"
+        ],
+        "value": "cola",
+        "id": 64003
+      },
+      {
+        "type": "synonyms",
+        "rule": [
+          "wine",
+          "vino"
+        ],
+        "value": "wine",
+        "id": 64004
+      }
+    ]
+  }
+]

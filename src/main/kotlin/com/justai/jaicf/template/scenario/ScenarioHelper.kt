@@ -28,6 +28,8 @@ class ContextDelegate(context: BotContext) {
 
     var sign: Int? by context.client
     var sum: Int? by context.client
+    var countryCurrency: String? by context.client
+    var dish: String? by context.client
 
     fun incSum(input: Int) {
         sum = sum ?: 0
@@ -65,4 +67,21 @@ fun Reactions.sayRandomBudget(context: ContextDelegate) {
     image(variant.imgUrl)
     say("Your budget: $itemCount ${variant.name}'s")
 }
+
+fun Reactions.sayPrice(context: ContextDelegate) {
+    val url = "https://api.ratesapi.io/api/latest?base=USD"
+    val currencies = runBlocking {
+        httpClient.get<JsonObject>(url)
+    }
+    val currency = Currency.valueOf(context.countryCurrency!!)
+    val pickedPrice = currencies["rates"]!!.jsonObject.get(context.countryCurrency!!)!!.double
+
+    val dishPrice = budgetItems[currency]!!.find { it.name == context.dish }!!.price
+    val itemCount = BigDecimal(context.convertedSum(pickedPrice) / dishPrice).setScale(2, RoundingMode.HALF_EVEN)
+    say("Your can buy $itemCount ${context.dish}'s on $dishPrice ${context.countryCurrency}")
+    context.dish = null
+    context.countryCurrency = null
+}
+
+
 data class CurrencyResponse(val base: String, val rates: Map<String, Double>, val date: Date)

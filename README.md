@@ -14,3 +14,4 @@ Please refer to the detailed [Quick Start](https://github.com/just-ai/jaicf-kotl
 
 # How it works
 ![import](./images/calc-example.gif)
+![import](./images/tlgrm-ex.gif)

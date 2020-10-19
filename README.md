@@ -10,3 +10,7 @@ Please refer to the detailed [Quick Start](https://github.com/just-ai/jaicf-kotl
 
 #### You can import Caila entities and intents from JAICP interface 
 ![import](./images/import.png)
+
+
+# How it works
+![import](./images/calc-example.gif)

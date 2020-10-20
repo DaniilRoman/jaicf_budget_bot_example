@@ -13,7 +13,41 @@
   },
   "intents": [
     {
-      "id": 6760,
+      "id": 7162,
+      "path": "/buy",
+      "answer": "Please fill dish and country.",
+      "enabled": true,
+      "shared": false,
+      "phrases": [
+        {
+          "text": "I want to buy a burger in swiss"
+        },
+        {
+          "text": "buy a wine"
+        },
+        {
+          "text": "in uk"
+        }
+      ],
+      "patterns": [],
+      "slots": [
+        {
+          "name": "dish",
+          "entity": "dish",
+          "required": true,
+          "prompts": [],
+          "array": false
+        },
+        {
+          "name": "country",
+          "entity": "country",
+          "required": true,
+          "prompts": []
+        }
+      ]
+    },
+    {
+      "id": 7161,
       "path": "/Bye",
       "enabled": true,
       "shared": false,
@@ -31,7 +65,53 @@
       "patterns": []
     },
     {
-      "id": 6761,
+      "id": 7171,
+      "path": "/Country",
+      "enabled": true,
+      "shared": false,
+      "phrases": [
+        {
+          "text": "in uk"
+        },
+        {
+          "text": "swiss"
+        }
+      ],
+      "patterns": [],
+      "slots": [
+        {
+          "name": "country",
+          "entity": "country",
+          "required": true,
+          "prompts": []
+        }
+      ]
+    },
+    {
+      "id": 7172,
+      "path": "/Dish",
+      "enabled": true,
+      "shared": false,
+      "phrases": [
+        {
+          "text": "a cheese"
+        },
+        {
+          "text": "burger"
+        }
+      ],
+      "patterns": [],
+      "slots": [
+        {
+          "name": "dish",
+          "entity": "dish",
+          "required": true,
+          "prompts": []
+        }
+      ]
+    },
+    {
+      "id": 7160,
       "path": "/Hello",
       "enabled": true,
       "shared": false,
@@ -47,75 +127,105 @@
         }
       ],
       "patterns": []
-    },
-    {
-      "id": 6762,
-      "path": "/Smalltalk",
-      "enabled": true,
-      "shared": false,
-      "phrases": [],
-      "patterns": []
-    },
-    {
-      "id": 6763,
-      "path": "/Smalltalk/Help",
-      "description": "",
-      "answer": "I'm a templated bot and can't do useful things yet...",
-      "enabled": true,
-      "shared": false,
-      "phrases": [
-        {
-          "text": "help"
-        },
-        {
-          "text": "what can you do"
-        },
-        {
-          "text": "your functions"
-        },
-        {
-          "text": "your possibilities"
-        },
-        {
-          "text": "tell me about you"
-        }
-      ],
-      "patterns": []
-    },
-    {
-      "id": 6764,
-      "path": "/Smalltalk/HowAreYou",
-      "answer": "I'm fine! Thank you!",
-      "enabled": true,
-      "shared": false,
-      "phrases": [
-        {
-          "text": "how are you"
-        }
-      ],
-      "patterns": []
-    },
-    {
-      "id": 6765,
-      "path": "/Smalltalk/WhatIsYourName",
-      "answer": "I don't have a name yet, I'm just a bot",
-      "enabled": true,
-      "shared": false,
-      "phrases": [
-        {
-          "text": "what is your name"
-        },
-        {
-          "text": "how to name you"
-        },
-        {
-          "text": "say me your name"
-        }
-      ],
-      "patterns": []
     }
   ],
-  "entities": [],
+  "entities": [
+    {
+      "entity": {
+        "name": "country",
+        "type": "annotation",
+        "id": 7009,
+        "enabled": true,
+        "shared": false,
+        "priority": 1,
+        "noSpelling": true,
+        "noMorph": false,
+        "phoneticSearch": false,
+        "fuzzySearch": false,
+        "client": false
+      },
+      "records": [
+        {
+          "type": "synonyms",
+          "rule": [
+            "eng",
+            "England",
+            "uk",
+            "UK"
+          ],
+          "value": "EUR",
+          "id": 63999
+        },
+        {
+          "type": "synonyms",
+          "rule": [
+            "swiss",
+            "switzerland",
+            "Swiss",
+            "Switzerland"
+          ],
+          "value": "CHF",
+          "id": 64000
+        }
+      ]
+    },
+    {
+      "entity": {
+        "name": "dish",
+        "type": "annotation",
+        "id": 7010,
+        "enabled": true,
+        "shared": false,
+        "priority": 1,
+        "noSpelling": true,
+        "noMorph": false,
+        "phoneticSearch": false,
+        "fuzzySearch": false,
+        "client": false
+      },
+      "records": [
+        {
+          "type": "synonyms",
+          "rule": [
+            "burger",
+            "burg"
+          ],
+          "value": "burger",
+          "id": 64001
+        },
+        {
+          "type": "synonyms",
+          "rule": [
+            "cheess",
+            "chee",
+            "cheese"
+          ],
+          "value": "cheese",
+          "id": 64002
+        },
+        {
+          "type": "synonyms",
+          "rule": [
+            "cola",
+            "coca cola",
+            "coca",
+            "soda"
+          ],
+          "value": "cola",
+          "id": 64003
+        },
+        {
+          "type": "synonyms",
+          "rule": [
+            "wine",
+            "vino"
+          ],
+          "value": "wine",
+          "id": 64004
+        }
+      ]
+    }
+  ],
   "enabledSystemEntities": [
     "duckling.number",
     "duckling.time",

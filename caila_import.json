@@ -1,7 +1,7 @@
 {
   "project" : {
-    "id" : "test_jaicf-249848986-Kzf",
-    "name" : "test_jaicf-249848986-Kzf",
+    "id" : "test_jaicf-249848986-uoq",
+    "name" : "test_jaicf-249848986-uoq",
     "folder" : "/jaicp"
   },
   "settings" : {
@@ -12,7 +12,7 @@
     "shared" : false
   },
   "intents" : [ {
-    "id" : 7393,
+    "id" : 7800,
     "path" : "/buy",
     "answer" : "Please fill dish and country.",
     "enabled" : true,
@@ -39,7 +39,7 @@
       "array" : false
     } ]
   }, {
-    "id" : 7394,
+    "id" : 7801,
     "path" : "/Bye",
     "enabled" : true,
     "shared" : false,
@@ -52,7 +52,7 @@
     } ],
     "patterns" : [ ]
   }, {
-    "id" : 7395,
+    "id" : 7802,
     "path" : "/Country",
     "enabled" : true,
     "shared" : false,
@@ -70,7 +70,7 @@
       "array" : false
     } ]
   }, {
-    "id" : 7396,
+    "id" : 7803,
     "path" : "/Dish",
     "enabled" : true,
     "shared" : false,
@@ -88,7 +88,7 @@
       "array" : false
     } ]
   }, {
-    "id" : 7397,
+    "id" : 7804,
     "path" : "/Hello",
     "enabled" : true,
     "shared" : false,
@@ -103,7 +103,7 @@
   } ],
   "entities" : [ {
     "entity" : {
-      "id" : 7026,
+      "id" : 7053,
       "name" : "country",
       "enabled" : true,
       "shared" : false,
@@ -116,19 +116,19 @@
       "client" : false
     },
     "records" : [ {
-      "id" : 64083,
+      "id" : 64119,
       "type" : "synonyms",
       "rule" : [ "eng", "England", "uk", "UK" ],
       "value" : "EUR"
     }, {
-      "id" : 64084,
+      "id" : 64120,
       "type" : "synonyms",
       "rule" : [ "swiss", "switzerland", "Swiss", "Switzerland" ],
       "value" : "CHF"
     } ]
   }, {
     "entity" : {
-      "id" : 7027,
+      "id" : 7054,
       "name" : "dish",
       "enabled" : true,
       "shared" : false,
@@ -141,22 +141,22 @@
       "client" : false
     },
     "records" : [ {
-      "id" : 64085,
+      "id" : 64121,
       "type" : "synonyms",
       "rule" : [ "burger", "burg" ],
       "value" : "burger"
     }, {
-      "id" : 64086,
+      "id" : 64122,
       "type" : "synonyms",
       "rule" : [ "cheess", "chee", "cheese" ],
       "value" : "cheese"
     }, {
-      "id" : 64087,
+      "id" : 64123,
       "type" : "synonyms",
       "rule" : [ "cola", "coca cola", "coca", "soda" ],
       "value" : "cola"
     }, {
-      "id" : 64088,
+      "id" : 64124,
       "type" : "synonyms",
       "rule" : [ "wine", "vino" ],
       "value" : "wine"

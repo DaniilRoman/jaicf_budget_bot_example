@@ -44,7 +44,7 @@ object MenuScenario : Scenario() {
                             contextDelegate.dish = slots["dish"] as String
                         }
                         if (contextDelegate.countryCurrency == null) {
-                            say("Can you type country:")
+                            say("Can you type country: ")
                             go("./country")
                         } else {
                             sayPrice(contextDelegate)

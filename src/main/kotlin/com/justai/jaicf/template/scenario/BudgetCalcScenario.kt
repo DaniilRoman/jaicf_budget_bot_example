@@ -14,7 +14,7 @@ object BudgetCalcScenario : Scenario() {
             action {
                 reactions.run {
                     buttons("+", "-")
-                    telegram?.say("Pick one", listOf("+", "-"))
+                    telegram?.say("Pick one.", listOf("+", "-"))
                 }
             }
 
